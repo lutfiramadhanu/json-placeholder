@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Link } from 'react-router-dom';
+import Post from './component/Post';
+import Comments from './component/Comments';
+import Albums from './component/Albums';
+import Photos from './component/Photos';
+import Todos from './component/Todos';
+import Users from './component/Users'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Link path="/" exact component={Post} />
+        <Link path="/Comments" exact component={Comments} />
+        <Link path="/Albums" exact component={Albums} />
+        <Link path="/Photos" exact component={Photos} />
+        <Link path="/Todos" exact component={Todos} />
+        <Link path="/Users" exact component={Users} />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
