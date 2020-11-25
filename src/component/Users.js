@@ -11,7 +11,7 @@ class Users extends Component{
       }
     
       componentDidMount() {
-        const apiUrl = 'https://jsonplaceholder.typicode.com/Comments';
+        const apiUrl = 'https://jsonplaceholder.typicode.com/users';
         fetch(apiUrl)
         .then((response) => response.json())
         .then((data) => this.setState({ data: data }));
@@ -22,30 +22,33 @@ class Users extends Component{
 
         return(
             <div>
-                <center>
-                <Mui.ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
-                        <Mui.Button href="/">Post</Mui.Button>
-                        <Mui.Button href="/Comments">Comments</Mui.Button>
-                        <Mui.Button href="/Albums">Albums</Mui.Button>
-                        <Mui.Button href="/Photos">Photos</Mui.Button>
-                        <Mui.Button href="/Todos">Todos</Mui.Button>
-                        <Mui.Button href="/Users">Users</Mui.Button>
-                    </Mui.ButtonGroup>
-                </center>
-                <h1 align="center">data json Comments</h1>
+                <nav>
+                    <div class="nav-wrapper  deep-green">
+                    <a href="#" class="brand-logo right">Logo</a>
+                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                        <li><a href="/">Posts</a></li>
+                        <li><a href="/Comments">Comments</a></li>
+                        <li><a href="/Albums">Albums</a></li>
+                        <li><a href="/Photos">Photos</a></li>
+                        <li><a href="/Todos">Todos</a></li>
+                        <li><a href="/Users">Users</a></li>
+                    </ul>
+                    </div>
+                </nav>
+                <h1 align="center">data json Users</h1>
                     <table border="1">
-                        <tr>
-                        <td>postId</td>
+                        <tr class="card-panel pink"> 
                         <td>id</td>
                         <td>name</td>
+                        <td>username</td>
                         <td>email</td>
-                        <td>body</td>
                         </tr>
                         {data.map(todo =>
-                        <tr hey={todo.postId}>
+                        <tr hey={todo.id}>
                             <td>{todo.id}</td>
+                            <td>{todo.name}</td>
+                            <td>{todo.username}</td>
                             <td>{todo.email}</td>
-                            <td>{todo.body}</td>
                         </tr>
                         )}
                     </table>
